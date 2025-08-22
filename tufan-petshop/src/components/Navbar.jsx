@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'; // useContext eklendi
 import { NavLink } from 'react-router-dom';
-import { CartContext } from '../context/CartContext'; // Eklendi
+import { CartContext } from '../context/CardContext'; // Eklendi
 import './Navbar.css';
 
 function Navbar() {

@@ -12,7 +12,7 @@ export const CartProvider = ({ children }) => {
     const existingItem = cartItems.find(item => item.id === product.id);
     if (existingItem) {
       // Varsa sayısını artır
-      setCartItems(cartItems.map(item => 
+      setCartItems(cartItems.map(item =>
         item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
       ));
     } else {

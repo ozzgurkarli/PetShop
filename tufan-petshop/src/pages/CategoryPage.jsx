@@ -1,19 +1,23 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import ProductList from '../components/ProductList'; // Eklendi
 
 function CategoryPage() {
-  const { categoryName } = useParams(); // URL'den kategori adını alır (kedi, kopek vb.)
+  const { categoryName, subCategoryName } = useParams();
+
+  const capitalize = (str) => {
+    if (!str) return '';
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  };
 
   return (
     <div>
-      <h1>{categoryName.charAt(0).toUpperCase() + categoryName.slice(1)} Ürünleri</h1>
-      <p>Burada {categoryName} için ürünler listelenecek.</p>
-      {/* Örnek alt kategoriler */}
-      <ul>
-        <li>Mamalar</li>
-        <li>Oyuncaklar</li>
-        <li>Bakım Ürünleri</li>
-      </ul>
+      <h1>
+        {capitalize(categoryName)}
+        {subCategoryName ? ` - ${capitalize(subCategoryName)}` : ''} Ürünleri
+      </h1>
+      
+      <ProductList category={categoryName} subCategory={subCategoryName} />
     </div>
   );
 }

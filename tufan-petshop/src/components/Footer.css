@@ -1,0 +1,35 @@
+.footer {
+  background-color: var(--text-color);
+  color: #fff;
+  padding: 2rem 4rem;
+  margin-top: auto; /* Sayfa içeriği kısa bile olsa footer'ı aşağıda tutar */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-brand h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: var(--primary-color);
+}

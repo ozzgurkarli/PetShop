@@ -1,0 +1,56 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--header-bg-color);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700; /* Daha kalın */
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem; /* Linkler arası boşluğu artırdık */
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  padding-bottom: 4px; /* Aktif linkin alt çizgisi için boşluk */
+  border-bottom: 2px solid transparent; /* Pasifken alt çizgi görünmez */
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Sayfa aktif olduğunda altı çizili ve renkli olacak */
+.nav-links a.active {
+  color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.cart-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.25s;
+}
+
+.cart-button:hover {
+  background-color: var(--primary-color-dark); /* Koyulaşan ton */
+}

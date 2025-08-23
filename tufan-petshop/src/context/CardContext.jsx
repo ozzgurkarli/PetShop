@@ -24,8 +24,12 @@ export const CartProvider = ({ children }) => {
   // Sepetteki toplam ürün sayısını hesapla
   const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
+  // Sepetteki toplam tutarı hesapla
+  const cartTotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
+
+
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, cartItemCount }}>
+    <CartContext.Provider value={{ cartItems, addToCart, cartItemCount, cartTotal }}>
       {children}
     </CartContext.Provider>
   );

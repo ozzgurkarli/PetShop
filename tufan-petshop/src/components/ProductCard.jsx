@@ -1,9 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { CartContext } from '../context/CardContext';
 import './ProductCard.css';
 
 function ProductCard({ product }) {
   const { addToCart } = useContext(CartContext);
+  const [isAdded, setIsAdded] = useState(false);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+    setIsAdded(true);
+    setTimeout(() => {
+      setIsAdded(false);
+    }, 1500); // 1.5 saniye sonra eski haline dönecek
+  };
 
   return (
     <div className="product-card">
@@ -14,10 +23,11 @@ function ProductCard({ product }) {
         <div className="product-footer">
           <p className="product-price">{product.price.toFixed(2)} TL</p>
           <button
-            className="add-to-cart-btn"
-            onClick={() => addToCart(product)}
+            className={`add-to-cart-btn ${isAdded ? 'added' : ''}`}
+            onClick={handleAddToCart}
+            disabled={isAdded}
           >
-            Sepete Ekle
+            {isAdded ? 'Eklendi!' : 'Sepete Ekle'}
           </button>
         </div>
       </div>

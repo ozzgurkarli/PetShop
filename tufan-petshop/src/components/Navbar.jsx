@@ -4,7 +4,7 @@ import { CartContext } from '../context/CardContext'; // Eklendi
 import './Navbar.css';
 
 function Navbar() {
-  const { cartItemCount } = useContext(CartContext); // Eklendi
+  const { cartItemCount, cartTotal } = useContext(CartContext); // cartTotal eklendi
 
   const categories = [
     { name: 'Kedi', path: 'kedi' },
@@ -48,6 +48,8 @@ function Navbar() {
         {/* Buton içeriği güncellendi */}
         <button className="cart-button">
           Sepetim ({cartItemCount})
+          {/* Toplam tutarı gösteren alan eklendi */}
+          <span className="cart-total">{cartTotal.toFixed(2)} TL</span>
         </button>
       </div>
     </header>

@@ -70,3 +70,14 @@
 .add-to-cart-btn:hover {
     background-color: var(--primary-color-dark);
 }
+
+/* Eklenme animasyonu için */
+.add-to-cart-btn.added {
+  background-color: #28a745; /* Başarılı ekleme rengi (yeşil) */
+  transform: scale(1.05);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.add-to-cart-btn:disabled {
+  cursor: not-allowed;
+}

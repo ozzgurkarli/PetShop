@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import CategoryPage from './pages/CategoryPage';
 import ContactPage from './pages/ContactPage';
+import CartPage from './pages/CartPage'; // Eklendi
 import './App.css';
 
 function App() {
@@ -13,10 +14,10 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* Hem ana kategori hem de alt kategori için tek bir route tanımlıyoruz */}
           <Route path="/:categoryName" element={<CategoryPage />} />
           <Route path="/:categoryName/:subCategoryName" element={<CategoryPage />} />
           <Route path="/iletisim" element={<ContactPage />} />
+          <Route path="/sepet" element={<CartPage />} /> {/* Eklendi */}
         </Routes>
       </main>
       <Footer />

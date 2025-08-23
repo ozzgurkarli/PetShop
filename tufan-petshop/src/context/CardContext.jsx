@@ -1,35 +1,40 @@
 import React, { createContext, useState } from 'react';
 
-// 1. Context'i oluştur
 export const CartContext = createContext();
 
-// 2. Provider'ı oluştur (uygulamayı sarmalayacak component)
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
-  const addToCart = (product) => {
-    // Ürün sepette zaten var mı diye kontrol et
+  const addToCart = (product, quantity) => {
     const existingItem = cartItems.find(item => item.id === product.id);
     if (existingItem) {
-      // Varsa sayısını artır
       setCartItems(cartItems.map(item =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item
       ));
     } else {
-      // Yoksa sepete 1 adet olarak ekle
-      setCartItems([...cartItems, { ...product, quantity: 1 }]);
+      setCartItems([...cartItems, { ...product, quantity }]);
     }
   };
 
-  // Sepetteki toplam ürün sayısını hesapla
-  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const removeFromCart = (productId) => {
+    setCartItems(cartItems.filter(item => item.id !== productId));
+  };
 
-  // Sepetteki toplam tutarı hesapla
+  const updateQuantity = (productId, newQuantity) => {
+    if (newQuantity < 1) {
+      removeFromCart(productId);
+    } else {
+      setCartItems(cartItems.map(item =>
+        item.id === productId ? { ...item, quantity: newQuantity } : item
+      ));
+    }
+  };
+
+  const cartItemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const cartTotal = cartItems.reduce((total, item) => total + (item.price * item.quantity), 0);
 
-
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, cartItemCount, cartTotal }}>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateQuantity, cartItemCount, cartTotal }}>
       {children}
     </CartContext.Provider>
   );

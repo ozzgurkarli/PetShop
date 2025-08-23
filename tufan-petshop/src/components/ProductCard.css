@@ -40,13 +40,27 @@
     margin: 0;
     flex-grow: 1; /* İsim alanının mümkün olduğunca uzamasını sağlar */
 }
-
 .product-footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
 }
+
+.add-to-cart-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-input {
+  width: 50px;
+  padding: 0.5em;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+}
+
 
 .product-price {
     font-size: 1.3rem;

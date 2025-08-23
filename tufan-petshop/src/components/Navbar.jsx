@@ -1,10 +1,10 @@
-import React, { useContext } from 'react'; // useContext eklendi
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import { CartContext } from '../context/CardContext'; // Eklendi
+import { CartContext } from '../context/CardContext';
 import './Navbar.css';
 
 function Navbar() {
-  const { cartItemCount, cartTotal } = useContext(CartContext); // cartTotal eklendi
+  const { cartItemCount, cartTotal } = useContext(CartContext);
 
   const categories = [
     { name: 'Kedi', path: 'kedi' },
@@ -45,12 +45,11 @@ function Navbar() {
         </ul>
       </nav>
       <div className="nav-actions">
-        {/* Buton içeriği güncellendi */}
-        <button className="cart-button">
+        {/* Butonu NavLink'e çevirdik */}
+        <NavLink to="/sepet" className="cart-button">
           Sepetim ({cartItemCount})
-          {/* Toplam tutarı gösteren alan eklendi */}
           <span className="cart-total">{cartTotal.toFixed(2)} TL</span>
-        </button>
+        </NavLink>
       </div>
     </header>
   );

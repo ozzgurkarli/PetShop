@@ -1,0 +1,152 @@
+.cart-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.cart-page h1 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.cart-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto auto;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: var(--surface-color);
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  transition: box-shadow 0.2s;
+}
+
+.cart-item:hover {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+}
+
+.cart-item-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-item-details h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.cart-item-price {
+    color: var(--text-light);
+    margin: 0.25rem 0 0 0;
+}
+
+.cart-item-quantity .quantity-input {
+  width: 60px;
+  padding: 0.6em;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  text-align: center;
+  font-size: 1rem;
+}
+
+.cart-item-total {
+  font-weight: 700;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  width: 120px;
+  text-align: right;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.remove-btn:hover {
+  background-color: #fee2e2; /* Hafif kırmızı arka plan */
+  color: #ef4444; /* Kırmızı renk */
+}
+
+
+.cart-summary {
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: 12px;
+  position: sticky; /* Sayfa kaydırılsa bile sabit kalır */
+  top: 2rem;
+}
+
+.cart-summary h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.summary-row.total {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.checkout-btn {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1em;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.25s, transform 0.2s;
+  box-shadow: 0 4px 15px rgba(229, 137, 80, 0.3);
+}
+
+.checkout-btn:hover {
+  background-color: var(--primary-color-dark);
+  transform: translateY(-2px);
+}

@@ -1,33 +1,41 @@
 .footer {
   background-color: var(--text-color);
-  color: #fff;
-  padding: 2rem 4rem;
-  margin-top: auto; /* Sayfa içeriği kısa bile olsa footer'ı aşağıda tutar */
+  color: #bdc3c7; /* Yazı rengi biraz açıldı */
+  padding: 3rem 5%;
+  margin-top: 4rem;
 }
 
 .footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 .footer-brand h3 {
-  margin: 0;
-  font-size: 1.5rem;
-  color: var(--primary-color);
+  margin: 0 0 0.5rem 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--surface-color);
+}
+
+.footer-brand p {
+    margin: 0;
 }
 
 .footer-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 2.5rem;
 }
 
 .footer-links a {
-  color: #fff;
+  color: #bdc3c7;
   text-decoration: none;
   transition: color 0.3s;
+  font-weight: 500;
 }
 
 .footer-links a:hover {

@@ -1,85 +1,78 @@
 .cart-page {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
-  padding: 2rem;
 }
 
 .cart-page h1 {
-  margin-bottom: 2rem;
-  font-size: 2.5rem;
-  font-weight: 700;
+  margin-bottom: 3rem;
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text-color);
 }
 
 .empty-cart {
   text-align: center;
-  padding: 4rem 0;
+  padding: 5rem 0;
 }
 
 .cart-container {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 2rem;
+  grid-template-columns: 2.5fr 1fr;
+  gap: 3rem;
   align-items: flex-start;
 }
 
 .cart-items {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .cart-item {
   display: grid;
-  grid-template-columns: auto 1fr auto auto auto;
+  grid-template-columns: 120px 1fr auto auto auto;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
   background-color: var(--surface-color);
-  padding: 1rem;
-  border-radius: 12px;
+  padding: 1.5rem;
+  border-radius: 16px;
   border: 1px solid var(--border-color);
-  transition: box-shadow 0.2s;
-}
-
-.cart-item:hover {
-    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
 }
 
 .cart-item-image {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
-  border-radius: 8px;
-}
-
-.cart-item-details {
-  display: flex;
-  flex-direction: column;
+  border-radius: 12px;
 }
 
 .cart-item-details h3 {
-  margin: 0;
-  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
 .cart-item-price {
     color: var(--text-light);
-    margin: 0.25rem 0 0 0;
+    font-size: 1rem;
+    margin: 0;
 }
 
 .cart-item-quantity .quantity-input {
   width: 60px;
-  padding: 0.6em;
+  padding: 0.7em;
   border-radius: 8px;
-  border: 1px solid var(--border-color);
+  border: 2px solid var(--border-color);
   text-align: center;
   font-size: 1rem;
+  font-weight: 600;
 }
 
 .cart-item-total {
   font-weight: 700;
   color: var(--primary-color);
-  font-size: 1.2rem;
-  width: 120px;
+  font-size: 1.3rem;
+  width: 130px;
   text-align: right;
 }
 
@@ -87,48 +80,54 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 0.6rem;
   border-radius: 50%;
   display: flex;
-  align-items: center;
-  justify-content: center;
   color: var(--text-light);
   transition: background-color 0.2s, color 0.2s;
 }
 
 .remove-btn:hover {
-  background-color: #fee2e2; /* Hafif kırmızı arka plan */
-  color: #ef4444; /* Kırmızı renk */
+  background-color: #FEE2E2;
+  color: var(--danger-color);
 }
 
-
 .cart-summary {
-  background-color: var(--secondary-color);
-  padding: 2rem;
-  border-radius: 12px;
-  position: sticky; /* Sayfa kaydırılsa bile sabit kalır */
-  top: 2rem;
+  background-color: var(--surface-color);
+  padding: 2.5rem;
+  border-radius: 16px;
+  position: sticky;
+  top: 120px; /* Navbar'ın yüksekliğine göre ayarlandı */
+  border: 1px solid var(--border-color);
 }
 
 .cart-summary h2 {
   margin-top: 0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1rem;
+  padding-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 
 .summary-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
-  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+.summary-row span:first-child{
+    color: var(--text-light);
+}
+.summary-row span:last-child{
+    font-weight: 600;
 }
 
 .summary-row.total {
   font-weight: 700;
-  font-size: 1.2rem;
-  margin-top: 1.5rem;
-  padding-top: 1.5rem;
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
   border-top: 1px solid var(--border-color);
 }
 
@@ -137,13 +136,13 @@
   background-color: var(--primary-color);
   color: white;
   border: none;
-  padding: 1em;
-  font-size: 1rem;
+  padding: 1.2em;
+  font-size: 1.1rem;
   font-weight: 600;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.25s, transform 0.2s;
-  box-shadow: 0 4px 15px rgba(229, 137, 80, 0.3);
+  margin-top: 1rem;
 }
 
 .checkout-btn:hover {

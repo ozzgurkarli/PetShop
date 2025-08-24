@@ -1,26 +1,27 @@
 .homepage {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
 }
 
 /* 1. HERO BÖLÜMÜ */
 .hero-container {
   display: flex;
   align-items: center;
-  gap: 3rem;
-  margin-bottom: 6rem;
+  gap: 4rem;
+  margin-bottom: 8rem;
+  padding: 2rem 0;
 }
 
 .hero-text {
-  flex: 1;
+  flex: 1.2;
 }
 
 .hero-text h1 {
-  font-size: 3.8em;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
+  font-size: 4.5em; /* Yazı boyutu büyütüldü */
+  font-weight: 800; /* Daha kalın */
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  color: var(--text-color);
 }
 
 .hero-text .highlight {
@@ -28,28 +29,28 @@
 }
 
 .hero-text p {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: var(--text-light);
-  margin-bottom: 2.5rem;
-  max-width: 500px;
+  margin-bottom: 3rem;
+  max-width: 600px;
 }
 
 .cta-button {
   background-color: var(--primary-color);
   color: white;
   border: none;
-  padding: 1em 2.5em;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 50px; /* Tam yuvarlak kenarlar */
+  padding: 1.2em 3em;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.25s, transform 0.2s;
-  box-shadow: 0 4px 15px rgba(229, 137, 80, 0.4);
+  box-shadow: 0 10px 25px rgba(229, 137, 80, 0.3);
 }
 
 .cta-button:hover {
   background-color: var(--primary-color-dark);
-  transform: translateY(-3px);
+  transform: translateY(-4px);
 }
 
 .hero-image {
@@ -58,101 +59,63 @@
 
 .hero-image img {
   width: 100%;
-  border-radius: 20px;
+  border-radius: 30px; /* Daha yuvarlak kenarlar */
   object-fit: cover;
-  height: 450px;
+  height: 500px;
 }
 
 /* 2. NEDEN BİZ? BÖLÜMÜ */
 .features-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 6rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 8rem;
   text-align: center;
 }
 
 .feature-card {
-  background-color: var(--secondary-color);
-  padding: 2.5rem;
-  border-radius: 16px;
+  background-color: var(--surface-color);
+  padding: 3rem;
+  border-radius: 20px;
   border: 1px solid var(--border-color);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.07);
+}
+
 
 .feature-icon {
   display: inline-flex;
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: var(--primary-color);
   color: white;
   border-radius: 50%;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .feature-card h3 {
-  margin-bottom: 0.5rem;
-  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--text-color);
 }
 
 .feature-card p {
   color: var(--text-light);
-  font-size: 0.95rem;
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 /* 3. ÖNE ÇIKAN ÜRÜNLER BÖLÜMÜ */
 .featured-products {
     text-align: center;
+    margin-bottom: 6rem;
 }
 
 .featured-products h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 3rem;
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.product-card {
-    background-color: var(--surface-color);
-    border-radius: 16px;
-    border: 1px solid var(--border-color);
-    overflow: hidden; /* Resmin karttan taşmasını engeller */
-    text-align: left;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.product-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
-}
-
-.product-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-}
-
-.product-info {
-    padding: 1.5rem;
-}
-
-.product-category {
-    font-size: 0.8rem;
-    color: var(--primary-color);
-    font-weight: 600;
-    text-transform: uppercase;
-}
-
-.product-info h3 {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-}
-
-.product-price {
-    font-size: 1.3rem;
-    font-weight: 700;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 4rem;
     color: var(--text-color);
 }

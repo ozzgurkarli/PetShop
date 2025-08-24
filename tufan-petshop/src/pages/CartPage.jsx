@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/CardContext';
+import { formatCurrency } from '../utils/formatCurrency'; // Format fonksiyonunu import et
 import './CartPage.css';
 
 // Çöp Kutusu ikonu için SVG component'i
@@ -11,7 +12,6 @@ const TrashIcon = () => (
     <line x1="14" y1="11" x2="14" y2="17" />
   </svg>
 );
-
 
 function CartPage() {
   const { cartItems, removeFromCart, updateQuantity, cartTotal } = useContext(CartContext);
@@ -35,7 +35,8 @@ function CartPage() {
               <img src={item.image} alt={item.name} className="cart-item-image" />
               <div className="cart-item-details">
                 <h3>{item.name}</h3>
-                <p className="cart-item-price">{item.price.toFixed(2)} TL</p>
+                {/* Ürün fiyatını formatla */}
+                <p className="cart-item-price">{formatCurrency(item.price)}</p>
               </div>
               <div className="cart-item-quantity">
                  <input
@@ -46,15 +47,15 @@ function CartPage() {
                   className="quantity-input"
                 />
               </div>
+               {/* Ürün toplam fiyatını formatla */}
                <p className="cart-item-total">
-                {(item.price * item.quantity).toFixed(2)} TL
+                {formatCurrency(item.price * item.quantity)}
               </p>
               <div className="cart-item-remove">
                 <button onClick={() => removeFromCart(item.id)} className="remove-btn">
                   <TrashIcon />
                 </button>
               </div>
-
             </div>
           ))}
         </div>
@@ -62,7 +63,8 @@ function CartPage() {
           <h2>Sipariş Özeti</h2>
           <div className="summary-row">
             <span>Ara Toplam</span>
-            <span>{cartTotal.toFixed(2)} TL</span>
+            {/* Ara toplamı formatla */}
+            <span>{formatCurrency(cartTotal)}</span>
           </div>
           <div className="summary-row">
             <span>Kargo</span>
@@ -70,7 +72,8 @@ function CartPage() {
           </div>
           <div className="summary-row total">
             <span>Toplam</span>
-            <span>{cartTotal.toFixed(2)} TL</span>
+            {/* Genel toplamı formatla */}
+            <span>{formatCurrency(cartTotal)}</span>
           </div>
           <button className="checkout-btn">Alışverişi Tamamla</button>
         </div>

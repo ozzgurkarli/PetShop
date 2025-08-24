@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CartContext } from '../context/CardContext';
+import { formatCurrency } from '../utils/formatCurrency'; // Format fonksiyonunu import et
 import './Navbar.css';
 
 function Navbar() {
@@ -16,7 +17,8 @@ function Navbar() {
   const subCategories = [
     { name: 'Mama', path: 'mama' },
     { name: 'Aksesuar', path: 'aksesuar' },
-    { name: 'Oyuncak', path: 'oyuncak' }
+    { name: 'Oyuncak', path: 'oyuncak' },
+    { name: 'Bakım', path: 'bakim' }
   ];
 
   return (
@@ -45,10 +47,10 @@ function Navbar() {
         </ul>
       </nav>
       <div className="nav-actions">
-        {/* Butonu NavLink'e çevirdik */}
         <NavLink to="/sepet" className="cart-button">
           Sepetim ({cartItemCount})
-          <span className="cart-total">{cartTotal.toFixed(2)} TL</span>
+          {/* Fiyatı formatCurrency ile göster */}
+          <span className="cart-total">{formatCurrency(cartTotal)}</span>
         </NavLink>
       </div>
     </header>

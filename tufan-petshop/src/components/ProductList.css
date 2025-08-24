@@ -18,6 +18,7 @@
 
 .product-grid {
     display: grid;
+    /* Kartların minimum genişliğini 280px olarak ayarlayarak daha esnek hale getirdik */
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }

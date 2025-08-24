@@ -1,22 +1,72 @@
 import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
-import { products } from '../data/products';
 import './ProductList.css';
 
+// Kategori isimlerini API'deki animal ID'lerine eşleştiren bir nesne
+const categoryToAnimalId = {
+  'kedi': 1,
+  'kopek': 2,
+  'kus': 3,
+  'balik': 4
+};
+
 function ProductList({ category, subCategory }) {
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [allProducts, setAllProducts] = useState([]); // Kategoriye ait tüm ürünleri tutar
+  const [filteredProducts, setFilteredProducts] = useState([]); // Filtrelenmiş ve sıralanmış ürünleri tutar
   const [sortType, setSortType] = useState('default');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Kategori değiştiğinde API'den veri çek
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const animalId = categoryToAnimalId[category];
+      if (!animalId) {
+        setAllProducts([]);
+        setLoading(false);
+        return;
+      }
+
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await fetch(`http://localhost:3000/product/?animal=${animalId}`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        
+        // Gelen veriyi uygulamanın kullandığı formata çeviriyoruz
+        const formattedProducts = result.data.map(p => ({
+          id: p.Id,
+          category: category,
+          // API'den gelen Description alanını subCategory olarak kullanıyoruz
+          subCategory: p.Description.toLowerCase(), 
+          name: p.Name,
+          // Fiyatı string'den sayıya çeviriyoruz ($ ve virgül kaldırılıyor)
+          price: parseFloat(p.Price.replace('$', '').replace(',', '')),
+          image: p.Image,
+          stock: p.Stock
+        }));
+        
+        setAllProducts(formattedProducts);
+      } catch (error) {
+        setError('Ürünler yüklenirken bir hata oluştu.');
+        console.error("Fetch error:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [category]);
 
   useEffect(() => {
-    // 1. Filtreleme
-    let tempProducts = products.filter(p => p.category === category);
+    let tempProducts = [...allProducts];
     if (subCategory) {
-      // Kuş yemleri için özel durum
-      const actualSubCategory = category === 'kus' && subCategory === 'mama' ? 'yem' : subCategory;
-      tempProducts = tempProducts.filter(p => p.subCategory === actualSubCategory);
+      tempProducts = tempProducts.filter(p => p.subCategory === subCategory);
     }
 
-    // 2. Sıralama
     const sortedProducts = [...tempProducts].sort((a, b) => {
       switch (sortType) {
         case 'price-asc':
@@ -28,12 +78,20 @@ function ProductList({ category, subCategory }) {
         case 'name-desc':
           return b.name.localeCompare(a.name);
         default:
-          return 0; // Varsayılan sıralama
+          return 0;
       }
     });
 
     setFilteredProducts(sortedProducts);
-  }, [category, subCategory, sortType]);
+  }, [allProducts, subCategory, sortType]);
+
+  if (loading) {
+    return <p>Ürünler yükleniyor...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
 
   return (
     <div className="product-list-container">

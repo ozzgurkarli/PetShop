@@ -44,15 +44,15 @@ function ContactPage() {
                 <ul className="contact-details">
                     <li>
                         <MapPinIcon />
-                        <span>PetShop Mahallesi, Sevimli Sokak No:12, Kadıköy/İstanbul</span>
+                        <span>Çubuklu Mahallesi, Hicran Sokak No:14/A, Beykoz/İstanbul</span>
                     </li>
                     <li>
                         <PhoneIcon />
-                        <span>0216 123 45 67</span>
+                        <span>0538 985 66 96</span>
                     </li>
                      <li>
                         <MailIcon />
-                        <span>destek@tufanpetshop.com</span>
+                        <span>tufan.petshop@hotmail.com</span>
                     </li>
                 </ul>
 

@@ -97,7 +97,7 @@
   padding: 2.5rem;
   border-radius: 16px;
   position: sticky;
-  top: 120px; /* Navbar'ın yüksekliğine göre ayarlandı */
+  top: 120px;
   border: 1px solid var(--border-color);
 }
 
@@ -148,4 +148,35 @@
 .checkout-btn:hover {
   background-color: var(--primary-color-dark);
   transform: translateY(-2px);
+}
+
+/* --- MOBİL İÇİN EKLENEN STILLER --- */
+@media (max-width: 992px) {
+    .cart-container {
+        grid-template-columns: 1fr; /* Tek sütunlu yapıya geçir */
+    }
+
+    .cart-summary {
+        position: static; /* Sticky özelliğini kaldır */
+    }
+
+    .cart-item {
+        /* Ürün kartını daha kompakt hale getir */
+        grid-template-columns: 80px 1fr auto; 
+        grid-template-areas: 
+            "image details remove"
+            "image quantity total_placeholder";
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .cart-item-image { 
+        grid-area: image;
+        width: 80px;
+        height: 80px;
+    }
+    .cart-item-details { grid-area: details; }
+    .cart-item-quantity { grid-area: quantity; }
+    .cart-item-remove { grid-area: remove; justify-self: end; }
+    .cart-item-total { display: none; } /* Mobilde toplam fiyatı gizle */
 }

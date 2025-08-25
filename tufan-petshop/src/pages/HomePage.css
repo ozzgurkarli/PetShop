@@ -6,10 +6,12 @@
 /* 1. HERO BÖLÜMÜ */
 .hero-container {
   display: flex;
+  flex-direction: column; /* MOBİL İÇİN EKLENDİ */
   align-items: center;
   gap: 4rem;
   margin-bottom: 8rem;
   padding: 2rem 0;
+  text-align: center; /* MOBİL İÇİN EKLENDİ */
 }
 
 .hero-text {
@@ -17,8 +19,8 @@
 }
 
 .hero-text h1 {
-  font-size: 4.5em; /* Yazı boyutu büyütüldü */
-  font-weight: 800; /* Daha kalın */
+  font-size: 3em; /* MOBİL İÇİN KÜÇÜLTÜLDÜ */
+  font-weight: 800;
   line-height: 1.1;
   margin-bottom: 2rem;
   color: var(--text-color);
@@ -29,7 +31,7 @@
 }
 
 .hero-text p {
-  font-size: 1.4rem;
+  font-size: 1.2rem; /* MOBİL İÇİN AYARLANDI */
   color: var(--text-light);
   margin-bottom: 3rem;
   max-width: 600px;
@@ -59,15 +61,15 @@
 
 .hero-image img {
   width: 100%;
-  border-radius: 30px; /* Daha yuvarlak kenarlar */
+  border-radius: 30px;
   object-fit: cover;
-  height: 500px;
+  height: auto; /* OTOMATİK YÜKSEKLİK */
 }
 
 /* 2. NEDEN BİZ? BÖLÜMÜ */
 .features-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: 1fr; /* MOBİL İÇİN TEK SÜTUN */
   gap: 2.5rem;
   margin-bottom: 8rem;
   text-align: center;
@@ -114,8 +116,32 @@
 }
 
 .featured-products h2 {
-    font-size: 3rem;
+    font-size: 2.5rem; /* MOBİL İÇİN AYARLANDI */
     font-weight: 800;
     margin-bottom: 4rem;
     color: var(--text-color);
+}
+
+/* BÜYÜK EKRANLAR İÇİN DÜZENLEME */
+@media (min-width: 768px) {
+  .hero-container {
+    flex-direction: row; /* BÜYÜK EKRANDA YAN YANA */
+    text-align: left;
+  }
+
+  .hero-text h1 {
+    font-size: 4.5em; /* ESKİ HALİNE GETİRİLDİ */
+  }
+
+  .hero-text p {
+    font-size: 1.4rem;
+  }
+
+  .features-section {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ESKİ HALİNE GETİRİLDİ */
+  }
+
+  .featured-products h2 {
+    font-size: 3rem;
+  }
 }

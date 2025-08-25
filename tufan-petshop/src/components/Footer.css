@@ -1,6 +1,6 @@
 .footer {
   background-color: var(--text-color);
-  color: #bdc3c7; /* Yazı rengi biraz açıldı */
+  color: #bdc3c7;
   padding: 3rem 5%;
   margin-top: 4rem;
 }
@@ -11,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Mobilde alt satıra geçmesi için */
   gap: 2rem;
 }
 
@@ -40,4 +40,28 @@
 
 .footer-links a:hover {
   color: var(--primary-color);
+}
+
+/* --- YENİ EKLENEN STILLER --- */
+.footer-social {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-social a {
+  color: #bdc3c7;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-social a:hover {
+  color: var(--primary-color);
+  transform: translateY(-3px);
+}
+
+/* --- MOBİL İÇİN DÜZENLEME --- */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column; /* Öğeleri alt alta sırala */
+        text-align: center;
+    }
 }

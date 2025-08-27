@@ -15,7 +15,6 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* --- YENİ YOLU (ROUTE) BURAYA EKLE --- */}
           <Route path="/hakkimizda" element={<AboutPage />} /> 
           <Route path="/:categoryName" element={<CategoryPage />} />
           <Route path="/:categoryName/:subCategoryName" element={<CategoryPage />} />

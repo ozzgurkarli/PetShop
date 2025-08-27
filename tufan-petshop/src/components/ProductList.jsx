@@ -1,26 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import ProductCard from './ProductCard';
+import { MenuContext } from '../context/MenuContext';
 import './ProductList.css';
 
-// Kategori isimlerini API'deki animal ID'lerine eşleştiren bir nesne
-const categoryToAnimalId = {
-  'kedi': 1,
-  'kopek': 2,
-  'kus': 3,
-  'balik': 4
-};
-
 function ProductList({ category, subCategory }) {
-  const [allProducts, setAllProducts] = useState([]); // Kategoriye ait tüm ürünleri tutar
-  const [filteredProducts, setFilteredProducts] = useState([]); // Filtrelenmiş ve sıralanmış ürünleri tutar
+  const { menuData } = useContext(MenuContext);
+  const [allProducts, setAllProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [sortType, setSortType] = useState('default');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Kategori değiştiğinde API'den veri çek
   useEffect(() => {
     const fetchProducts = async () => {
-      const animalId = categoryToAnimalId[category];
+      // URL'deki kategori adına göre ilgili hayvanın ID'sini bul
+      const currentCategoryObject = menuData.find(c => c.path === category);
+      const animalId = currentCategoryObject ? currentCategoryObject.Code : null;
+
       if (!animalId) {
         setAllProducts([]);
         setLoading(false);
@@ -36,14 +32,11 @@ function ProductList({ category, subCategory }) {
         }
         const result = await response.json();
         
-        // Gelen veriyi uygulamanın kullandığı formata çeviriyoruz
         const formattedProducts = result.data.map(p => ({
           id: p.Id,
           category: category,
-          // API'den gelen Description alanını subCategory olarak kullanıyoruz
-          subCategory: p.Description.toLowerCase(), 
+          subCategory: p.Description.toLowerCase().replace('i̇', 'i').replace('ş', 's').replace('ğ', 'g'), 
           name: p.Name,
-          // Fiyatı string'den sayıya çeviriyoruz ($ ve virgül kaldırılıyor)
           price: parseFloat(p.Price.replace('$', '').replace(',', '')),
           image: p.Image,
           stock: p.Stock
@@ -58,8 +51,12 @@ function ProductList({ category, subCategory }) {
       }
     };
 
-    fetchProducts();
-  }, [category]);
+    // Ürünleri çekmeden önce menü verisinin yüklenmesini bekle
+    if (menuData.length > 0) {
+        fetchProducts();
+    }
+
+  }, [category, menuData]);
 
   useEffect(() => {
     let tempProducts = [...allProducts];
@@ -85,7 +82,8 @@ function ProductList({ category, subCategory }) {
     setFilteredProducts(sortedProducts);
   }, [allProducts, subCategory, sortType]);
 
-  if (loading) {
+  // Menü verisi yüklenirken de yükleniyor göster
+  if (loading || menuData.length === 0) {
     return <p>Ürünler yükleniyor...</p>;
   }
 

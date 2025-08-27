@@ -1,10 +1,11 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CartContext } from '../context/CardContext';
+import { MenuContext } from '../context/MenuContext'; // MenuContext import edildi
 import { formatCurrency } from '../utils/formatCurrency';
 import './Navbar.css';
 
-// İkonlar
+// İkonlar (değişiklik yok)
 const MenuIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="18" x2="21" y2="18" />
@@ -15,7 +16,6 @@ const CloseIcon = () => (
         <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
     </svg>
 );
-// Sepet İkonu
 const CartIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
@@ -26,10 +26,10 @@ const CartIcon = () => (
 
 function Navbar() {
   const { cartItemCount, cartTotal } = useContext(CartContext);
+  const { menuData, loading: menuLoading } = useContext(MenuContext); // MenuContext'ten veri çekildi
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const categories = [ { name: 'Kedi', path: 'kedi' }, { name: 'Köpek', path: 'kopek' }, { name: 'Kuş', path: 'kus' }, { name: 'Balık', path: 'balik' } ];
-  const subCategories = [ { name: 'Mama', path: 'mama' }, { name: 'Aksesuar', path: 'aksesuar' }, { name: 'Oyuncak', path: 'oyuncak' }, { name: 'Bakım', path: 'bakim' } ];
+  // Sabit kategoriler kaldırıldı
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -58,18 +58,20 @@ function Navbar() {
       </NavLink>
       
       <nav className="desktop-nav">
-        <ul className="nav-links">
-          {categories.map(category => (
-            <li key={category.path} className="dropdown">
-              <NavLink to={`/${category.path}`} className="dropbtn">{category.name}</NavLink>
-              <div className="dropdown-content">
-                <NavLink to={`/${category.path}`} end>Hepsi</NavLink>
-                {subCategories.map(sub => ( <NavLink key={sub.path} to={`/${category.path}/${sub.path}`}>{sub.name}</NavLink> ))}
-              </div>
-            </li>
-          ))}
-          <li><NavLink to="/iletisim">Bize Ulaşın</NavLink></li>
-        </ul>
+        {!menuLoading && (
+          <ul className="nav-links">
+            {menuData.map(category => (
+              <li key={category.Code} className="dropdown">
+                <NavLink to={`/${category.path}`} className="dropbtn">{category.Description}</NavLink>
+                <div className="dropdown-content">
+                  <NavLink to={`/${category.path}`} end>Hepsi</NavLink>
+                  {category.subCategories.map(sub => ( <NavLink key={`${category.Code}-${sub.Code}`} to={`/${category.path}/${sub.path}`}>{sub.Description}</NavLink> ))}
+                </div>
+              </li>
+            ))}
+            <li><NavLink to="/iletisim">Bize Ulaşın</NavLink></li>
+          </ul>
+        )}
       </nav>
 
       <div className="nav-right">
@@ -86,16 +88,16 @@ function Navbar() {
         </div>
       </div>
 
-      {isMenuOpen && (
+      {isMenuOpen && !menuLoading && (
         <div className="mobile-nav-overlay">
           <ul className="mobile-nav-links">
-             {categories.map(category => (
-              <li key={category.path} className="mobile-dropdown">
-                <NavLink to={`/${category.path}`} onClick={handleLinkClick}>{category.name}</NavLink>
+             {menuData.map(category => (
+              <li key={category.Code} className="mobile-dropdown">
+                <NavLink to={`/${category.path}`} onClick={handleLinkClick}>{category.Description}</NavLink>
                  <div className="mobile-dropdown-content">
                   <NavLink to={`/${category.path}`} end onClick={handleLinkClick}>- Hepsi</NavLink>
-                  {subCategories.map(sub => (
-                    <NavLink key={sub.path} to={`/${category.path}/${sub.path}`} onClick={handleLinkClick}>- {sub.name}</NavLink>
+                  {category.subCategories.map(sub => (
+                    <NavLink key={`${category.Code}-${sub.Code}`} to={`/${category.path}/${sub.path}`} onClick={handleLinkClick}>- {sub.Description}</NavLink>
                   ))}
                 </div>
               </li>

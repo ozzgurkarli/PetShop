@@ -23,7 +23,7 @@ function HomePage() {
             Minik Dostlarınızın <span className="highlight">Mutluluk</span> Durağı
           </h1>
           <p>
-            Onların sağlığı ve neşesi için en kaliteli ürünleri, özenle seçip kapınıza getiriyoruz.
+            Onların sağlığı ve neşesi için en kaliteli ürünleri ve atölyemizde özenle ürettiğimiz yuvaları kapınıza getiriyoruz.
           </p>
           <button className="cta-button">Keşfetmeye Başla</button>
         </div>

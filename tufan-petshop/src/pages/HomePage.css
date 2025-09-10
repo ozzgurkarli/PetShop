@@ -3,15 +3,15 @@
   margin: 0 auto;
 }
 
-/* 1. HERO BÖLÜMÜ */
+/* 1. HERO BÖLÜMÜ - DAHA KOMPAKT HALE GETİRİLDİ */
 .hero-container {
   display: flex;
-  flex-direction: column; /* MOBİL İÇİN EKLENDİ */
+  flex-direction: column;
   align-items: center;
-  gap: 4rem;
-  margin-bottom: 8rem;
-  padding: 2rem 0;
-  text-align: center; /* MOBİL İÇİN EKLENDİ */
+  gap: 2rem; /* Azaltıldı */
+  margin-bottom: 5rem; /* Azaltıldı */
+  padding: 2rem 1rem; /* Yan boşluklar eklendi */
+  text-align: center;
 }
 
 .hero-text {
@@ -19,10 +19,10 @@
 }
 
 .hero-text h1 {
-  font-size: 3em; /* MOBİL İÇİN KÜÇÜLTÜLDÜ */
+  font-size: 2.5em; /* Küçültüldü */
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 2rem;
+  line-height: 1.2;
+  margin-bottom: 1rem; /* Azaltıldı */
   color: var(--text-color);
 }
 
@@ -31,28 +31,10 @@
 }
 
 .hero-text p {
-  font-size: 1.2rem; /* MOBİL İÇİN AYARLANDI */
+  font-size: 1.1rem; /* Küçültüldü */
   color: var(--text-light);
-  margin-bottom: 3rem;
+  margin-bottom: 0; /* Kaldırıldı */
   max-width: 600px;
-}
-
-.cta-button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 1.2em 3em;
-  font-size: 1.1rem;
-  font-weight: 700;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: background-color 0.25s, transform 0.2s;
-  box-shadow: 0 10px 25px rgba(229, 137, 80, 0.3);
-}
-
-.cta-button:hover {
-  background-color: var(--primary-color-dark);
-  transform: translateY(-4px);
 }
 
 .hero-image {
@@ -61,15 +43,16 @@
 
 .hero-image img {
   width: 100%;
-  border-radius: 30px;
+  max-width: 600px; /* Resmin çok büyümesini engeller */
+  border-radius: 20px; /* Köşeler yumuşatıldı */
   object-fit: cover;
-  height: auto; /* OTOMATİK YÜKSEKLİK */
+  height: auto;
 }
 
 /* 2. NEDEN BİZ? BÖLÜMÜ */
 .features-section {
   display: grid;
-  grid-template-columns: 1fr; /* MOBİL İÇİN TEK SÜTUN */
+  grid-template-columns: 1fr;
   gap: 2.5rem;
   margin-bottom: 8rem;
   text-align: center;
@@ -116,7 +99,7 @@
 }
 
 .featured-products h2 {
-    font-size: 2.5rem; /* MOBİL İÇİN AYARLANDI */
+    font-size: 2.5rem;
     font-weight: 800;
     margin-bottom: 4rem;
     color: var(--text-color);
@@ -125,20 +108,21 @@
 /* BÜYÜK EKRANLAR İÇİN DÜZENLEME */
 @media (min-width: 768px) {
   .hero-container {
-    flex-direction: row; /* BÜYÜK EKRANDA YAN YANA */
+    flex-direction: row;
     text-align: left;
+    padding: 3rem 2rem; /* Ayarlandı */
   }
 
   .hero-text h1 {
-    font-size: 4.5em; /* ESKİ HALİNE GETİRİLDİ */
+    font-size: 3.2em; /* Küçültüldü */
   }
 
   .hero-text p {
-    font-size: 1.4rem;
+    font-size: 1.2rem; /* Küçültüldü */
   }
 
   .features-section {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ESKİ HALİNE GETİRİLDİ */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
   .featured-products h2 {

@@ -1,4 +1,5 @@
 import React from 'react';
+import TopCategories from '../components/TopCategories';
 import './HomePage.css';
 
 // İkonları doğrudan component içinde tanımlıyoruz
@@ -25,13 +26,15 @@ function HomePage() {
           <p>
             Onların sağlığı ve neşesi için en kaliteli ürünleri ve atölyemizde özenle ürettiğimiz yuvaları kapınıza getiriyoruz.
           </p>
-          <button className="cta-button">Keşfetmeye Başla</button>
+          {/* <button className="cta-button">Keşfetmeye Başla</button> -- Bu buton kaldırıldı */}
         </div>
         <div className="hero-image">
-           {/* Buraya sevimli bir hayvan fotoğrafı gelecek */}
-           <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?q=80&w=2564&auto=format&fit=crop" alt="Mutlu bir köpek" />
+           <img src="https://pngimg.com/d/husky_PNG23.png" alt="Sarılmış iki Husky" />
         </div>
       </section>
+
+      {/* YENİ EKLENEN POPÜLER KATEGORİLER BÖLÜMÜ */}
+      <TopCategories />
 
       {/* 2. NEDEN BİZ? BÖLÜMÜ */}
       <section className="features-section">
@@ -52,9 +55,9 @@ function HomePage() {
         </div>
       </section>
 
-       {/* 3. ÖNE ÇIKAN ÜRÜNLER BÖLÜMÜ */}
+       {/* ÖNE ÇIKAN ÜRÜNLER BÖLÜMÜ */}
       <section className="featured-products">
-        <h2>Popüler Ürünler</h2>
+        <h2>Öne Çıkan Ürünler</h2>
         <div className="product-grid">
             {/* Örnek Ürün Kartı */}
             <div className="product-card">

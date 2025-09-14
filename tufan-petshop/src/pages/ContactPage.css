@@ -137,3 +137,83 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ... (Mevcut CheckoutPage.css stillerinin altına ekleyin) ... */
+
+.pay-btn:disabled {
+  background-color: var(--text-light);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- SÖZLEŞME ONAY KUTULARI --- */
+.agreements {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.agreement-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.agreement-row input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #bdc3c7;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: border-color 0.2s, background-color 0.2s;
+  margin-top: 2px;
+}
+
+.agreement-row input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--primary-color-dark);
+  outline-offset: 2px;
+}
+
+.agreement-row input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.agreement-row input[type="checkbox"]:checked::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 6px;
+  height: 12px;
+  border: solid var(--surface-color);
+  border-width: 0 3px 3px 0;
+  transform: translate(-50%, -50%) rotate(45deg); 
+}
+
+.agreement-row label {
+  color: var(--text-color);
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.agreement-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 2px solid var(--primary-color);
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.2s, border-color 0.2s;
+  padding-bottom: 1px;
+}
+
+.agreement-link:hover {
+  color: var(--primary-color-dark);
+  border-color: var(--primary-color-dark);
+}

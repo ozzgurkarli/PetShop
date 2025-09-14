@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Link yerine useNavigate import edildi
 import { CartContext } from '../context/CardContext';
 import { formatCurrency } from '../utils/formatCurrency';
-import Modal from '../components/Modal'; // Modal component'ini import et
-import DeliveryReturnsPage from './DeliveryReturnsPage'; // Sayfaları import et
+import Modal from '../components/Modal';
+import DeliveryReturnsPage from './DeliveryReturnsPage';
 import PrivacyPolicyPage from './PrivacyPolicyPage';
 import SalesAgreementPage from './SalesAgreementPage';
 import './CartPage.css';
@@ -18,7 +19,8 @@ const TrashIcon = () => (
 
 function CartPage() {
   const { cartItems, removeFromCart, updateQuantity, cartTotal } = useContext(CartContext);
-  
+  const navigate = useNavigate(); // Yönlendirme için useNavigate hook'u kullanılıyor
+
   const [modalContent, setModalContent] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -43,6 +45,11 @@ function CartPage() {
   const closeModal = () => {
     setIsModalOpen(false);
     setModalContent(null);
+  };
+  
+  // Ödeme sayfasına yönlendirecek fonksiyon
+  const handleCheckout = () => {
+    navigate('/odeme');
   };
 
   const getModalContent = () => {
@@ -136,10 +143,16 @@ function CartPage() {
                 </label>
               </div>
             </div>
-
-            <button className="checkout-btn" disabled={!allAgreementsChecked}>
+            
+            {/* --- DEĞİŞEN VE DÜZELTİLEN BUTON KISMI --- */}
+            <button 
+              className="checkout-btn" 
+              onClick={handleCheckout}
+              disabled={!allAgreementsChecked}
+            >
               Alışverişi Tamamla
             </button>
+
           </div>
         </div>
       </div>

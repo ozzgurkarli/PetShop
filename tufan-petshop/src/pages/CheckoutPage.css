@@ -1,0 +1,130 @@
+.checkout-page {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.checkout-page h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.checkout-container {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+}
+
+.billing-details,
+.payment-details {
+  background-color: var(--surface-color);
+  padding: 2.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+}
+
+.billing-details h2,
+.payment-details h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.billing-form .form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.billing-form .form-group {
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.billing-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.billing-form input,
+.billing-form textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.billing-form input:focus,
+.billing-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.payment-form input {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+  margin-bottom: 1.5rem;
+}
+
+.payment-form .form-row {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.payment-form .form-group {
+  flex: 1;
+}
+
+
+.pay-btn {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1.2em;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.25s, transform 0.2s;
+  margin-top: 1rem;
+}
+
+.pay-btn:hover {
+  background-color: var(--primary-color-dark);
+  transform: translateY(-2px);
+}
+
+.payment-logo-band {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.payment-logo-band img {
+  max-width: 100%;
+  height: auto;
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .checkout-container {
+    grid-template-columns: 1fr;
+  }
+}

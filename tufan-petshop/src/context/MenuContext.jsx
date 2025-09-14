@@ -10,7 +10,7 @@ export const MenuProvider = ({ children }) => {
   useEffect(() => {
     const fetchMenuData = async () => {
       try {
-        const response = await fetch('https://petshopapi-eight.vercel.app/parameter/navbar');
+        const response = await fetch('http://localhost:3000/parameter/navbar');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

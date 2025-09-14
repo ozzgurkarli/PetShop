@@ -1,0 +1,23 @@
+.policy-page {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  line-height: 1.8;
+}
+
+.policy-page h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.policy-page p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.policy-page strong {
+    color: var(--text-color);
+}

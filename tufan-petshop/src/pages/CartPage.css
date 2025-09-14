@@ -131,6 +131,97 @@
   border-top: 1px solid var(--border-color);
 }
 
+/* ... (Mevcut stillerin) ... */
+
+.checkout-btn:disabled {
+  background-color: var(--text-light);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- SÖZLEŞME ONAY KUTULARI (YENİ VE DÜZELTİLMİŞ STİLLER) --- */
+.agreements {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 0.95rem;
+}
+
+.agreement-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.agreement-row input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #bdc3c7; /* Seçili değilkenki çerçeve rengi */
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: border-color 0.2s, background-color 0.2s;
+  margin-top: 2px; /* Metinle daha iyi hizalanması için */
+}
+
+/* Checkbox'a odaklanıldığında (klavye ile gezerken) */
+.agreement-row input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--primary-color-dark);
+  outline-offset: 2px;
+}
+
+.agreement-row input[type="checkbox"]:checked {
+  background-color: var(--primary-color); /* DOĞRU TURUNCU RENK */
+  border-color: var(--primary-color);     /* DOĞRU TURUNCU RENK */
+}
+
+.agreement-row input[type="checkbox"]:checked::before {
+  content: '';
+  position: absolute;
+  
+  /* Düzeltme: Konumlandırmayı transform ile daha hassas yapıyoruz */
+  left: 50%;
+  top: 45%; /* Tik işaretinin görsel merkezi, geometrik merkezinden biraz yukarıdadır */
+  
+  width: 6px;     /* Genişliği biraz artırarak daha tok bir görünüm */
+  height: 12px;   /* Yüksekliği biraz artırarak daha tok bir görünüm */
+  
+  border: solid var(--surface-color); /* Tik işaretinin rengi (beyaz) */
+  border-width: 0 3px 3px 0;          /* Çizgi kalınlığını artırdım */
+  
+  /* Bu sihirli satır önce elemanı kendi boyutuna göre ortalar, sonra 45 derece döndürür */
+  transform: translate(-50%, -50%) rotate(45deg); 
+}
+.agreement-row label {
+  color: var(--text-color);
+  line-height: 1.6;
+  cursor: pointer;
+}
+
+.agreement-link {
+  color: var(--primary-color); /* DOĞRU TURUNCU RENK */
+  text-decoration: none;
+  border-bottom: 2px solid var(--primary-color); /* Altı çizili yapmak yerine border kullandım, daha modern */
+  cursor: pointer;
+  font-weight: 600;
+  transition: color 0.2s, border-color 0.2s;
+  padding-bottom: 1px; /* Çizgi ile metin arası boşluk */
+}
+
+.agreement-link:hover {
+  color: var(--primary-color-dark); /* Hover durumunda koyu turuncu */
+  border-color: var(--primary-color-dark);
+}
+
+/* ... (Kalan diğer stiller) ... */
+
 .checkout-btn {
   width: 100%;
   background-color: var(--primary-color);

@@ -1,0 +1,125 @@
+.order-tracking-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    min-height: 70vh;
+}
+
+.tracking-container {
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    background-color: var(--surface-color);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.tracking-icon {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.tracking-container h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.tracking-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 2.5rem;
+}
+
+.tracking-form .input-group {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.tracking-form input {
+    flex-grow: 1;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s;
+}
+
+.tracking-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.tracking-form button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0 1.8rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background-color 0.25s, transform 0.2s;
+}
+
+.tracking-form button:hover {
+    background-color: var(--primary-color-dark);
+    transform: translateY(-2px);
+}
+
+.tracking-form button:disabled {
+    background-color: var(--text-light);
+    cursor: not-allowed;
+    transform: none;
+}
+.tracking-form button span {
+    display: none;
+}
+
+
+/* Durum Sonucu */
+.status-result {
+    margin-top: 2.5rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: left;
+}
+
+.status-result.success {
+    background-color: #F0FDF4; /* Açık yeşil */
+    border: 1px solid #A7F3D0; /* Daha belirgin yeşil */
+}
+.status-result.error {
+    background-color: #FEF2F2; /* Açık kırmızı */
+    border: 1px solid #FECACA; /* Daha belirgin kırmızı */
+}
+
+.status-result h3 {
+    margin-top: 0;
+    color: var(--text-color);
+}
+
+.status-result p {
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+
+.status-result .tracking-number {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+/* Büyük ekranlar için */
+@media (min-width: 768px) {
+    .tracking-form button span {
+        display: inline;
+    }
+}

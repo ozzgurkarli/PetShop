@@ -8,7 +8,6 @@ const categoriesData = [
   { name: 'Kedi', path: 'kedi', items: '11', image: 'https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?q=80&w=200&h=200&fit=crop', color: '#e4f0f5' },
   { name: 'Balık', path: 'balik', items: '7', image: 'https://images.unsplash.com/photo-1535443120147-80c1d8b33538?q=80&w=200&h=200&fit=crop', color: '#e4ebf5' },
   { name: 'Kuş', path: 'kus', items: '6', image: 'https://images.unsplash.com/photo-1555513523-74603957a0b8?q=80&w=200&h=200&fit=crop', color: '#f5f0e4' },
-  { name: 'Kemirgen', path: 'kemirgen', items: '5', image: 'https://images.unsplash.com/photo-1425082661705-1834bfd09d64?q=80&w=200&h=200&fit=crop', color: '#f5e4e4' }
 ];
 
 const TopCategories = () => {

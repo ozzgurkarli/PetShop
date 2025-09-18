@@ -6,7 +6,8 @@ import CategoryPage from './pages/CategoryPage';
 import ContactPage from './pages/ContactPage';
 import CartPage from './pages/CartPage';
 import AboutPage from './pages/AboutPage';
-import CheckoutPage from './pages/CheckoutPage'; // YENİ SAYFAYI İMPORT ET
+import CheckoutPage from './pages/CheckoutPage';
+import OrderTrackingPage from './pages/OrderTrackingPage'; // YENİ SAYFAYI İMPORT ET
 import './App.css';
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
           <Route path="/:categoryName/:subCategoryName" element={<CategoryPage />} />
           <Route path="/iletisim" element={<ContactPage />} />
           <Route path="/sepet" element={<CartPage />} />
-          <Route path="/odeme" element={<CheckoutPage />} /> {/* YENİ ROTA EKLENDİ */}
+          <Route path="/odeme" element={<CheckoutPage />} />
+          <Route path="/siparis-takip" element={<OrderTrackingPage />} /> {/* YENİ ROTA EKLENDİ */}
         </Routes>
       </main>
       <Footer />

@@ -38,10 +38,11 @@ function Footer() {
       <div className="footer-content">
         <div className="footer-brand">
           <h3>Tufan PetShop</h3>
-          <p>&copy; 2025. Tüm Hakları Saklıdır.</p>
+          <p>© 2025. Tüm Hakları Saklıdır.</p>
         </div>
         <div className="footer-links">
           <a href="/hakkimizda">Hakkımızda</a>
+          <a href="/siparis-takip">Sipariş Takibi</a> {/* YENİ LİNK EKLENDİ */}
           <a href="/iletisim">İletişim</a>
         </div>
         <div className="footer-social">
